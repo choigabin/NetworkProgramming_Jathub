@@ -5,10 +5,15 @@ from django.db import models
 class Repository(models.Model):
     name = models.CharField(max_length=40)
     description = models.CharField(max_length=200) #여기까지가 레퍼지토리의 필수 요소
+    deadline = models.DateTimeField() #유저가 직접 입력할 수 있게
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     #repo1.introduction_set 나와 연결되어 있는 introduction의 set을 가져옴
     # repo1.introduction_all 나와 연결되어 있는 자소서를 전부 가져옴
+
+    class Meta: #테이블 전체에 적용됨
+        #복수형 알려주는 작업
+        verbose_name_plural = 'Repositories'
 
     def __str__(self):
         return self.name
