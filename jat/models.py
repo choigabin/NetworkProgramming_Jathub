@@ -25,6 +25,7 @@ class Introduction(models.Model):
     version = models.IntegerField(default=1)
     contents = models.TextField()
     #intro1.comment_set 자기 속성이 없어도 닷을 붙이면 자기랑 연결되어있는 애들 값 가져올 수 있음
+    access = models.IntegerField(default=1) #0이면 private, 1이면 public p
 
     def __str__(self):
         return f'{self.version} {self.contents}'
