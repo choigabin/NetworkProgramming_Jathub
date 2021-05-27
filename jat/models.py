@@ -14,6 +14,7 @@ class Repository(models.Model):
     class Meta: #테이블 전체에 적용됨
         #복수형 알려주는 작업
         verbose_name_plural = 'Repositories'
+        ordering = ['deadline'] #역순은 ['-deadline']
 
     def __str__(self):
         return self.name
@@ -27,6 +28,9 @@ class Introduction(models.Model):
     #intro1.comment_set 자기 속성이 없어도 닷을 붙이면 자기랑 연결되어있는 애들 값 가져올 수 있음
     access = models.IntegerField(default=1) #0이면 private, 1이면 public p
 
+    class Meta:
+        ordering = ['-version']
+
     def __str__(self):
         return f'{self.version} {self.contents}'
 
@@ -35,6 +39,9 @@ class Comment(models.Model):
     comment = models.CharField(max_length=200)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ['-created']
 
     def __str__(self):
         return self.comment
