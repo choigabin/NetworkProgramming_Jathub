@@ -3,9 +3,20 @@
 {% block title %} List Repository {% endblock %}
 
 {% block content %}
-    {% for repository in repository_list %}
-        {{ repository }}
-    {% endfor %}
+    {{ repository_list.count }} Repository
+    <table>
+        <tbody>
+        {% for repository in repository_list %}
+        <tr>
+            <td>수정</td>
+            <td>{{ repository.name }}</td>
+            <td>Date : {{ repository.deadline }}</td>
+            <td>삭제</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
 {% endblock %}
 
 
