@@ -4,12 +4,12 @@
 
 {% block content %}
     {{ repository_list.count }} Repository
-    <table>
+    <table border="1">
         <tbody>
         {% for repository in repository_list %}
         <tr>
             <td>수정</td>
-            <td>{{ repository.name }}</td>
+            <td><a href="{% url 'jat:repository_detail' pk=repository.name %}">{{ repository.name }}</a></td>
             <td>Date : {{ repository.deadline }}</td>
             <td>삭제</td>
         </tr>
