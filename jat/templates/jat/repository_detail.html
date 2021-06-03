@@ -1,20 +1,18 @@
+
 {% extends 'base.html' %}
 
-{% block title %} Detail Repository {% endblock %}
+{% block title %}Detail Repository{% endblock %}
 
 {% block content %}
     {{ repository.name }}
     <table border="1">
         <tbody>
         {% for introduction in repository.introduction_set.all %}
-        <tr>
-            <td>{{ repository.introduction.version }}</td>
-            <td>삭제</td>
-        </tr>
+            <tr>
+                <td>Version: <a href="{% url 'jat:introduction_detail' repository_pk=repository.pk pk=introduction.pk %}">{{ introduction.version }}</a></td>
+                <td>삭제</td>
+            </tr>
         {% endfor %}
         </tbody>
     </table>
-
 {% endblock %}
-
-
