@@ -11,10 +11,12 @@ urlpatterns = [
     path('repository/add/', views.RepositoryCreateView.as_view(), name='repository_add'),    #jat:repository_add
     path('repository/<int:pk>/modify/', views.RepositoryUpdateView.as_view(), name='repository_modify'),    #jat:repository_modify
     path('repository/<int:pk>/delete/', views.RepositoryDeleteView.as_view(), name='repository_delete'),    #jat:repository_delete
+
     path('repository/<int:repository_pk>/introduction/add', views.IntroductionCreatView.as_view(), name="introduction_add"),
     path('repository/<int:repository_pk>/introduction/<int:pk>/modify/', views.IntroductionUpdateView.as_view(), name="introduction_modify"),
     path('repository/<int:repository_pk>/introduction/<int:pk>/delete/', views.IntroductionDeleteView.as_view(), name="introduction_delete"),
-    path('repository/<int:repository_pk>/Comment/<int:pk>/comment/add/', views.CommentCreateView.as_view(), name="comment_add"),
-    path('repository/<int:repository_pk>/Comment/<int:pk>/comment/modify/', views.CommentUpdateView.as_view(), name="comment_modify"),
-    path('repository/<int:repository_pk>/Comment/<int:pk>/comment/delete/', views.CommentDeleteView.as_view(), name="comment_delete"),
+
+    path('repository/<int:repository_pk>/comment/<int:introduction_pk>/comment/add/', views.CommentCreateView.as_view(), name="comment_add"),
+    path('repository/<int:repository_pk>/comment/<int:introduction_pk>/comment/modify/', views.CommentUpdateView.as_view(), name="comment_modify"),
+    path('repository/<int:repository_pk>/comment/<int:introduction_pk>/comment/delete/', views.CommentDeleteView.as_view(), name="comment_delete"),
 ]
