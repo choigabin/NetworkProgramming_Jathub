@@ -10,7 +10,7 @@
     </form>
     <ul>
         {% for introduction in repository.introduction_set.all %}
-        <li>version {{ introduction.versioin }}</li>
+            <li>version {{ introduction.version }}</li>
         {% endfor %}
     </ul>
 {% endblock %}
